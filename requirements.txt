@@ -1,3 +1,6 @@
 scikit-learn 
 pandas 
 joblib
+uvicorn 
+gradio
+fastapi

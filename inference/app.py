@@ -13,18 +13,17 @@ def predict_with_polarity(text):
     X = vectorizer.transform([text])
     result = model.predict(X)[0]
     probs = model.predict_proba(X)[0]
-    pos, neu, neg = probs
+    neg , neu, pos = probs
     polarity_score = max(probs)
     return result, f"{polarity_score:.2f}", pos, neu, neg
 
 def predict_and_display(comment):
     if not comment.strip():
         raise gr.Error("⚠️ الرجاء إدخال نص بالحسانية / Veuillez entrer un texte en hassaniya.")
-    if len(comment.strip().split()) < 3:
-        raise gr.Error("⚠️ يجب إدخال 3 كلمات على الأقل / Veuillez entrer au moins 3 mots.")
+    
 
     prediction, polarity_rate, pos, neu, neg = predict_with_polarity(comment)
-    probs = f"إيجابي: {pos:.2f} | محايد: {neu:.2f} | سلبي: {neg:.2f}"
+    probs = f"🔹Positive: {pos:.2f} 🔹 Neutral: {neu:.2f} 🔹 Negative: {neg:.2f}"
     return prediction, polarity_rate, probs
 
 with gr.Blocks(title="Analysis Sentiment") as iface:
