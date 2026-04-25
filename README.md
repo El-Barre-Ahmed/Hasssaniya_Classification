@@ -29,6 +29,7 @@ Since no ready dataset exists for Hassaniya text, we:
 We implemented and compared:
 
  **Naive Bayes** → strong baseline for small datasets
+ 
  **Deep Learning** → tested but affected by data scarcity
 
 👉 Observation: Classical ML performs more stable than deep learning due to limited data.
